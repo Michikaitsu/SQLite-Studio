@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="256" height="256">
+  <defs>
+    <linearGradient id="gradBackground" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3D366E" />
+      <stop offset="100%" stop-color="#1E1E2E" />
+    </linearGradient>
+    
+    <linearGradient id="gradForeground" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9D92F9" />
+      <stop offset="100%" stop-color="#7C6FF7" />
+    </linearGradient>
+
+    <filter id="fluentShadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="2" dy="3" stdDeviation="2.5" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <rect x="35" y="15" width="55" height="70" rx="6" fill="url(#gradBackground)" filter="url(#fluentShadow)" />
+
+  <rect x="48" y="30" width="32" height="4" rx="2" fill="#ffffff" fill-opacity="0.6" />
+  <rect x="48" y="42" width="32" height="4" rx="2" fill="#ffffff" fill-opacity="0.6" />
+  <rect x="48" y="54" width="32" height="4" rx="2" fill="#ffffff" fill-opacity="0.6" />
+  <rect x="48" y="66" width="20" height="4" rx="2" fill="#ffffff" fill-opacity="0.4" />
+
+  <rect x="10" y="25" width="45" height="50" rx="8" fill="url(#gradForeground)" filter="url(#fluentShadow)" />
+
+  <text 
+    x="32.5" 
+    y="61" 
+    font-family="'Segoe UI', Roboto, Helvetica, Arial, sans-serif" 
+    font-size="32" 
+    font-weight="bold" 
+    fill="#ffffff" 
+    text-anchor="middle">
+    S
+  </text>
+</svg>
