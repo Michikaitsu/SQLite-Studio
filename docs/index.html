@@ -65,7 +65,7 @@
                 <a href="#" id="portable-link" class="download-option">
                     <div class="option-icon">🚀</div>
                     <div class="option-text">
-                        <span class="option-title">Portable (.exe)</span>
+                        <span class="option-title">Portable (.zip)</span>
                         <span class="option-subtitle">Single file, no installation required.</span>
                     </div>
                 </a>
@@ -151,7 +151,7 @@
                     // Scan assets
                     const assets = data.assets;
                     const setupAsset = assets.find(a => a.name.includes('Setup') && a.name.endsWith('.exe'));
-                    const portableAsset = assets.find(a => !a.name.includes('Setup') && a.name.endsWith('.exe'));
+                    const portableAsset = assets.find(a => !a.name.includes('Setup') && a.name.endsWith('.zip'));
 
                     if (setupAsset) document.getElementById('setup-link').href = setupAsset.browser_download_url;
                     if (portableAsset) document.getElementById('portable-link').href = portableAsset.browser_download_url;
