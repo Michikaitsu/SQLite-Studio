@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +8,12 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/svg+xml" href="public/icon.ico">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="public/icon.ico">
 </head>
+
 <body>
     <nav class="navbar">
         <div class="container navbar-inner">
@@ -20,7 +24,7 @@
             <div class="nav-links">
                 <a href="https://github.com/Michikaitsu/sqlite-studio" class="nav-link">GitHub</a>
                 <a href="#features" class="nav-link">Features</a>
-                <a href="#" class="btn btn-primary btn-sm">Download</a>
+                <a href="javascript:void(0)" class="btn btn-primary btn-sm open-download">Download</a>
             </div>
         </div>
     </nav>
@@ -30,14 +34,50 @@
         <div class="container hero-inner">
             <img src="public/icon.ico" alt="SQLite Studio" class="hero-icon">
             <h1 class="hero-title">Manage SQLite with <span class="text-gradient">Precision</span>.</h1>
-            <p class="hero-subtitle">A professional desktop application for managing and modeling SQLite databases, developed for developers by Michikaitsu.</p>
+            <p class="hero-subtitle">A professional desktop application for managing and modeling SQLite databases,
+                developed for developers by Michikaitsu.</p>
             <div class="hero-actions">
-                <a href="#" class="btn btn-primary btn-lg">Download for Windows</a>
+                <a href="javascript:void(0)" class="btn btn-primary btn-lg open-download">Download for Windows</a>
                 <a href="https://github.com/Michikaitsu/sqlite-studio" class="btn btn-secondary btn-lg">View Source</a>
+            </div>
+            <div id="release-info" class="release-tag" style="display: none;">
+                Latest version: <span id="version-number">...</span>
             </div>
         </div>
     </header>
 
+    <!-- Download Modal -->
+    <div id="download-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Select Download Type</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <p class="modal-desc">Choose how you want to use SQLite Studio on your Windows machine.</p>
+            <div class="download-options">
+                <a href="#" id="setup-link" class="download-option">
+                    <div class="option-icon">📦</div>
+                    <div class="option-text">
+                        <span class="option-title">Installer (Setup)</span>
+                        <span class="option-subtitle">Standard installation with desktop shortcuts.</span>
+                    </div>
+                </a>
+                <a href="#" id="portable-link" class="download-option">
+                    <div class="option-icon">🚀</div>
+                    <div class="option-text">
+                        <span class="option-title">Portable (.exe)</span>
+                        <span class="option-subtitle">Single file, no installation required.</span>
+                    </div>
+                </a>
+            </div>
+            <div class="modal-footer">
+                <p>Not seeing the latest version? <a href="https://github.com/Michikaitsu/sqlite-studio/releases"
+                        target="_blank">View on GitHub</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section ... -->
     <section id="features" class="features">
         <div class="container">
             <h2 class="section-title">Everything you need</h2>
@@ -45,22 +85,26 @@
                 <div class="feature-card">
                     <div class="feature-icon">📝</div>
                     <h3>Monaco Editor</h3>
-                    <p>Advanced SQL editing with syntax highlighting, autocomplete, and smart suggestions powered by the VS Code engine.</p>
+                    <p>Advanced SQL editing with syntax highlighting, autocomplete, and smart suggestions powered by the
+                        VS Code engine.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">📊</div>
                     <h3>Visual Schema</h3>
-                    <p>Model your database visually with interactive ER-diagrams. Export your designs as high-quality PNG or SVG files.</p>
+                    <p>Model your database visually with interactive ER-diagrams. Export your designs as high-quality
+                        PNG or SVG files.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🎨</div>
                     <h3>Modern Studio</h3>
-                    <p>A sleek, premium interface with full dark mode support, glassmorphism effects, and smooth animations.</p>
+                    <p>A sleek, premium interface with full dark mode support, glassmorphism effects, and smooth
+                        animations.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">⚡</div>
                     <h3>WASM Powered</h3>
-                    <p>Built on sql.js, offering blazing fast in-memory performance and maximum portability across Windows systems.</p>
+                    <p>Built on sql.js, offering blazing fast in-memory performance and maximum portability across
+                        Windows systems.</p>
                 </div>
             </div>
         </div>
@@ -77,5 +121,48 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        const REPO = 'Michikaitsu/sqlite-studio';
+        const modal = document.getElementById('download-modal');
+        const openBtns = document.querySelectorAll('.open-download');
+        const closeBtn = document.querySelector('.close-modal');
+
+        // Modal Logic
+        openBtns.forEach(btn => {
+            btn.onclick = () => modal.style.display = 'flex';
+        });
+
+        closeBtn.onclick = () => modal.style.display = 'none';
+        window.onclick = (e) => {
+            if (e.target == modal) modal.style.display = 'none';
+        };
+
+        // GitHub API Logic
+        async function fetchLatestRelease() {
+            try {
+                const response = await fetch(`https://api.github.com/repos/${REPO}/releases/latest`);
+                const data = await response.json();
+
+                if (data.tag_name) {
+                    document.getElementById('version-number').innerText = data.tag_name;
+                    document.getElementById('release-info').style.display = 'block';
+
+                    // Scan assets
+                    const assets = data.assets;
+                    const setupAsset = assets.find(a => a.name.includes('Setup') && a.name.endsWith('.exe'));
+                    const portableAsset = assets.find(a => !a.name.includes('Setup') && a.name.endsWith('.exe'));
+
+                    if (setupAsset) document.getElementById('setup-link').href = setupAsset.browser_download_url;
+                    if (portableAsset) document.getElementById('portable-link').href = portableAsset.browser_download_url;
+                }
+            } catch (err) {
+                console.error('Failed to fetch release:', err);
+            }
+        }
+
+        fetchLatestRelease();
+    </script>
 </body>
+
 </html>
