@@ -28,7 +28,7 @@
         </div>
     </nav>
 
-    <header class="hero">
+    <header class="hero full-height">
         <div class="hero-glow"></div>
         <div class="container hero-inner">
             <img src="public/icon.ico" alt="SQLite Studio" class="hero-icon">
@@ -40,8 +40,9 @@
                 <a href="https://github.com/Michikaitsu/sqlite-studio" class="btn btn-secondary btn-lg"
                     target="_blank">View Source</a>
             </div>
-            <div id="release-info" class="release-tag" style="display: none;">
-                Latest version: <span id="version-number">...</span>
+            <div class="scroll-indicator">
+                <span>Explore Features</span>
+                <div class="mouse"></div>
             </div>
         </div>
     </header>
@@ -50,7 +51,12 @@
     <div id="download-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3>Select Download Type</h3>
+                <div class="modal-title-group">
+                    <h3>Select Download Type</h3>
+                    <div id="release-info" class="release-tag-modal" style="display: none;">
+                        Latest: <span id="version-number">...</span>
+                    </div>
+                </div>
                 <button class="close-modal">&times;</button>
             </div>
             <p class="modal-desc">Choose how you want to use SQLite Studio on your Windows machine.</p>

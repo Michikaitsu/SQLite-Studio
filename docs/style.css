@@ -108,6 +108,14 @@ body {
   position: relative;
 }
 
+.hero.full-height {
+  height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
 .hero-glow {
   position: absolute;
   top: 50%;
@@ -146,6 +154,74 @@ body {
   display: flex;
   justify-content: center;
   gap: 16px;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 500;
+  animation: fadeIn 1s ease-out 1s both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.mouse {
+  width: 20px;
+  height: 32px;
+  border: 2px solid var(--border-secondary);
+  border-radius: 12px;
+  position: relative;
+}
+
+.mouse::after {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 6px;
+  background: var(--accent-primary);
+  border-radius: 2px;
+  animation: scrollWheel 1.5s infinite;
+}
+
+@keyframes scrollWheel {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 0);
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 0;
+    transform: translate(-50%, 10px);
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
 
 /* Buttons */
@@ -287,24 +363,6 @@ body {
   }
 }
 
-/* Release Tag */
-.release-tag {
-  margin-top: 24px;
-  font-size: 14px;
-  color: var(--text-muted);
-  font-family: var(--font-mono);
-  background: var(--bg-secondary);
-  display: inline-block;
-  padding: 4px 12px;
-  border-radius: 20px;
-  border: 1px solid var(--border-primary);
-}
-
-#version-number {
-  color: var(--success, #34d399);
-  font-weight: 600;
-}
-
 /* Modal */
 .modal {
   display: none;
@@ -349,6 +407,12 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 12px;
+}
+
+.modal-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .modal-header h3 {
@@ -429,6 +493,23 @@ body {
 .modal-footer a {
   color: var(--accent-primary);
   text-decoration: none;
+}
+
+.release-tag-modal {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  background: var(--bg-tertiary);
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid var(--border-primary);
+  align-self: flex-start;
+}
+
+#version-number {
+  color: var(--success, #34d399);
+  font-weight: 600;
 }
 
 /* Content Pages (License & Docs) */
