@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation | SQLite Studio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="public/icon.ico">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container navbar-inner">
+            <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">
+                <img src="public/icon.ico" alt="SQLite Studio Logo" class="logo-img">
+                <span class="logo-text">SQLite Studio</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="license.html" class="nav-link">License</a>
+                <a href="https://github.com/Michikaitsu/sqlite-studio" target="_blank" class="nav-link">GitHub</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container content-page">
+        <header class="content-header">
+            <h1 class="text-gradient">Documentation</h1>
+            <p class="subtitle">Learn how to make the most of SQLite Studio.</p>
+        </header>
+
+        <div class="doc-layout">
+            <aside class="doc-sidebar">
+                <nav>
+                    <ul>
+                        <li><a href="#introduction">Introduction</a></li>
+                        <li><a href="#installation">Installation</a></li>
+                        <li><a href="#databases">Managing Databases</a></li>
+                        <li><a href="#sql-editor">SQL Editor</a></li>
+                        <li><a href="#schema-designer">Schema Designer</a></li>
+                        <li><a href="#troubleshooting">Troubleshooting</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <section class="doc-content">
+                <article id="introduction">
+                    <h2>Introduction</h2>
+                    <p>SQLite Studio is a professional, offline-first desktop application designed for efficient
+                        database management. It combines a powerful SQL editor with a visual schema designer to provide
+                        a complete development environment for SQLite.</p>
+                </article>
+
+                <article id="installation">
+                    <h2>Installation</h2>
+                    <p>You can install SQLite Studio using the latest setup installer or use the portable version:</p>
+                    <ul>
+                        <li><strong>Setup Installer:</strong> Standard Windows installation. Register file associations
+                            and desktop shortcuts.</li>
+                        <li><strong>Portable (.zip):</strong> Extract and run the executable directly. No installation
+                            or admin rights required.</li>
+                    </ul>
+                </article>
+
+                <article id="databases">
+                    <h2>Managing Databases</h2>
+                    <p>SQLite Studio makes it easy to work with multiple databases:</p>
+                    <ul>
+                        <li><strong>Open Database:</strong> Use <code>Ctrl+O</code> or the toolbar to open existing
+                            <code>.db</code>, <code>.sqlite</code>, or <code>.sqlite3</code> files.</li>
+                        <li><strong>New Database:</strong> Create fresh databases with <code>Ctrl+N</code>.</li>
+                        <li><strong>Persistence:</strong> Changes are saved automatically (atomic writes) back to the
+                            original file.</li>
+                    </ul>
+                </article>
+
+                <article id="sql-editor">
+                    <h2>SQL Editor</h2>
+                    <p>The editor is powered by Monaco (the same engine as VS Code):</p>
+                    <ul>
+                        <li><strong>Syntax Highlighting:</strong> Supports all standard SQLite keywords and functions.
+                        </li>
+                        <li><strong>Execution:</strong> Run your queries using <code>Ctrl+Enter</code>.</li>
+                        <li><strong>Multiple Results:</strong> The results panel displays data in a clean, filterable
+                            table.</li>
+                    </ul>
+                </article>
+
+                <article id="schema-designer">
+                    <h2>Schema Designer</h2>
+                    <p>Visualize your data structure automatically:</p>
+                    <ul>
+                        <li><strong>Automatic Layout:</strong> Tables and their relationships (Foreign Keys) are
+                            rendered visually.</li>
+                        <li><strong>Interactivity:</strong> Drag and drop tables to organize your view.</li>
+                        <li><strong>Export:</strong> Save your diagram as a high-quality SVG or PNG for documentation
+                            purposes.</li>
+                    </ul>
+                </article>
+
+                <article id="troubleshooting">
+                    <h2>Troubleshooting</h2>
+                    <p>Missing a feature or found a bug? Check out the <a
+                            href="https://github.com/Michikaitsu/sqlite-studio/issues" target="_blank">Issues page</a>
+                        on GitHub.</p>
+                </article>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <p>&copy; 2026 SQLite Studio. Developed by <a href="https://github.com/Michikaitsu"
+                        target="_blank">Michikaitsu</a>.</p>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="license.html">License</a>
+                    <a href="https://github.com/Michikaitsu/sqlite-studio" target="_blank">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

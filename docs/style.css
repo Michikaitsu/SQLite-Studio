@@ -430,3 +430,126 @@ body {
   color: var(--accent-primary);
   text-decoration: none;
 }
+
+/* Content Pages (License & Docs) */
+.content-page {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  min-height: calc(100vh - 220px);
+}
+
+.content-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.content-header h1 {
+  font-size: 48px;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.content-header .subtitle {
+  font-size: 18px;
+  color: var(--text-secondary);
+}
+
+.license-box {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.license-box pre {
+  font-family: inherit;
+  font-size: inherit;
+  white-space: pre-wrap;
+}
+
+/* Doc Layout */
+.doc-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+.doc-sidebar {
+  position: sticky;
+  top: 120px;
+}
+
+.doc-sidebar ul {
+  list-style: none;
+}
+
+.doc-sidebar li {
+  margin-bottom: 12px;
+}
+
+.doc-sidebar a {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: 15px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.doc-sidebar a:hover {
+  color: var(--text-primary);
+}
+
+.doc-content h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  padding-top: 40px;
+  color: var(--text-primary);
+}
+
+.doc-content h2:first-child {
+  padding-top: 0;
+}
+
+.doc-content p {
+  color: var(--text-secondary);
+  font-size: 16px;
+  margin-bottom: 24px;
+}
+
+.doc-content ul {
+  margin-left: 20px;
+  margin-bottom: 24px;
+  color: var(--text-secondary);
+}
+
+.doc-content li {
+  margin-bottom: 8px;
+}
+
+.doc-content article {
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--border-primary);
+  margin-bottom: 40px;
+}
+
+.doc-content article:last-child {
+  border-bottom: none;
+}
+
+@media (max-width: 900px) {
+  .doc-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .doc-sidebar {
+    position: static;
+    border-bottom: 1px solid var(--border-primary);
+    padding-bottom: 20px;
+  }
+}
